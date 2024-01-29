@@ -1,42 +1,66 @@
-/*
-2. WAP to add two distances using binary plus (+) operator overloading.
-*/
 #include <iostream>
-
 using namespace std;
 
+
 class Distance {
-private:
-    int feet;
-    float inches;
-
 public:
-    Distance(int ft = 0, float in = 0.0) : feet(ft), inches(in) {}
+    int feet;
+    int inches;
+    Distance() {
+        feet = 0;
+        inches = 0;
+    }
 
-    Distance operator+(const Distance& d) {
-        int totalFeet = feet + d.feet;
-        float totalInches = inches + d.inches;
+    Distance(int ft, int in) {
+        feet = ft;
+        inches = in;
+    }
 
-        if (totalInches >= 12.0) {
-            totalFeet++;
-            totalInches -= 12.0;
+    void display() {
+        cout << "Feet: " << feet << " Inches: " << inches << endl;
+    }
+
+    Distance operator+(Distance A) {
+        int totalFeet = feet + A.feet;
+        int totalInches = inches + A.inches;
+
+        if (totalInches >= 12) {
+            totalFeet += totalInches / 12;
+            totalInches %= 12;
         }
 
         return Distance(totalFeet, totalInches);
     }
-
-    void display() {
-        std::cout << "Feet: " << feet << " Inches: " << inches << std::endl;
-    }
 };
 
 int main() {
-    Distance d1(5, 6.5);
-    Distance d2(3, 10.2);
+    int feet1, inches1, feet2, inches2;
 
-    Distance sum = d1 + d2;
+    std::cout << "Enter distance 1 (feet): ";
+    std::cin >> feet1;
 
-    sum.display(); // Output: Feet: 9 Inches: 4.7
+    std::cout << "Enter distance 1 (inches): ";
+    std::cin >> inches1;
+
+    std::cout << "Enter distance 2 (feet): ";
+    std::cin >> feet2;
+
+    std::cout << "Enter distance 2 (inches): ";
+    std::cin >> inches2;
+
+    Distance distance1(feet1, inches1);
+    Distance distance2(feet2, inches2);
+
+    Distance totalDistance = distance1 + distance2;
+
+    std::cout << "Distance 1: ";
+    distance1.display();
+
+    std::cout << "Distance 2: ";
+    distance2.display();
+
+    std::cout << "Total Distance: ";
+    totalDistance.display();
 
     return 0;
 }
