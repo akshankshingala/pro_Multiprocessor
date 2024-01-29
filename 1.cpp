@@ -1,30 +1,30 @@
 #include <iostream>
-#include <string.h>
-
 using namespace std;
 
-class Message {
+class Msg {
 private:
-    std::string message;
+    char inte_Message[100];
 
 public:
-    Message(const std::string& msg = "") : message(msg) {}
-
-    void print() const {
-        std::cout << message << std::endl;
+    Msg() {
+        cout << "Enter initial message: ";
+        cin >> inte_Message;
     }
 
-    void print(const std::string& additionalMsg) const {
-        std::cout << message << " " << additionalMsg << std::endl;
+    void print() {
+        cout << "Message: " << inte_Message << endl;
+    }
+
+    void print(string addi_Message) {
+        cout << "Message: " << inte_Message << " " << addi_Message << endl;
     }
 };
 
 int main() {
-    Message msg1("Hello");
-    Message msg2("Hi");
+    Msg msg;
 
-    msg1.print(); // Output: Hello
-    msg2.print("there!"); // Output: Hi there!
+    msg.print();
+    msg.print(" Default hyy");
 
     return 0;
 }
