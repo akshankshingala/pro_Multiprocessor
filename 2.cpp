@@ -1,3 +1,6 @@
+/*
+2. WAP to add two distances using binary plus (+) operator overloading.
+*/
 #include <iostream>
 using namespace std;
 
@@ -36,30 +39,30 @@ public:
 int main() {
     int feet1, inches1, feet2, inches2;
 
-    std::cout << "Enter distance 1 (feet): ";
-    std::cin >> feet1;
+   cout << "Enter distance 1 (feet): ";
+   cin >> feet1;
 
-    std::cout << "Enter distance 1 (inches): ";
-    std::cin >> inches1;
+    cout << "Enter distance 1 (inches): ";
+    cin >> inches1;
 
-    std::cout << "Enter distance 2 (feet): ";
-    std::cin >> feet2;
+    cout << "Enter distance 2 (feet): ";
+    cin >> feet2;
 
-    std::cout << "Enter distance 2 (inches): ";
-    std::cin >> inches2;
+    cout << "Enter distance 2 (inches): ";
+    cin >> inches2;
 
     Distance distance1(feet1, inches1);
     Distance distance2(feet2, inches2);
 
     Distance totalDistance = distance1 + distance2;
 
-    std::cout << "Distance 1: ";
+    cout << "Distance 1: ";
     distance1.display();
 
-    std::cout << "Distance 2: ";
+    cout << "Distance 2: ";
     distance2.display();
 
-    std::cout << "Total Distance: ";
+    cout << "Total Distance: ";
     totalDistance.display();
 
     return 0;
